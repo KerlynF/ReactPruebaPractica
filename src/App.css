@@ -1,0 +1,18 @@
+.App
+{
+  
+  
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+  font-family: Lato, sans-serif;
+}
+
+.search-container
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
