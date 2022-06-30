@@ -1,25 +1,19 @@
-import React, {useState, useEffect} from "react";
-import CardRepo from "../modulos/cardRepo";
-import axios from "axios";
+import React from "react";
+import CardRepo from "../modulos/cardRepo.jsx";
+import GetInfoRep from "../modulos/axios";
 
-const APi = 'https://api.github.com/users';
+import '../Css/cardRepo.css';
+
+
+const APi = 'https://api.github.com';
+const numOfRepoPerPage = 6;
 const ContainerRepo = () =>
 {
-    const [infoApi, setInfoApi] = useState([]);
-    useEffect( () => {
-        async function fetchData()
-        {
-            const response = await axios(APi);
-            setInfoApi(response.data);
-        }
-        fetchData();
-    }, []);
+    const infoApi = GetInfoRep(APi);
     return(
         <section className="main-container">
             <div className="cards-container">
-                {infoApi.map(elementApi => (
-                 <CardRepo />
-                ))}
+                <CardRepo repoName={infoApi.items[0].name} repoLenguage={infoApi.items[0].language}/>
             </div>
         </section>
     );
